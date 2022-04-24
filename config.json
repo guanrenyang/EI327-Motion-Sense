@@ -1,19 +1,26 @@
 {
-    "name": "Mnist_LeNet",
+    "name": "Motion_Sense",
     "n_gpu": 1,
 
     "arch": {
-        "type": "MnistModel",
-        "args": {}
+        "type": "MotionSenseModel",
+        "args": {
+            "time_slice": 12,
+            "dim_latent": 10,
+            "dim_lstm_hidden": 10
+        }
     },
     "data_loader": {
-        "type": "MnistDataLoader",
+        "type": "MotionSenseDataLoader",
         "args":{
             "data_dir": "data/",
             "batch_size": 128,
+            "time_slice": 12,
+            "num_features": 12,
             "shuffle": true,
             "validation_split": 0.1,
             "num_workers": 2
+
         }
     },
     "optimizer": {
